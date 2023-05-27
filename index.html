@@ -12,56 +12,36 @@
 <body>
     <header>
         <nav>
-            <a href="">View Highscores</a>
-            <p><strong>Time:</strong></p>
-            <p class="timer-count" aria-placehulder="Remaining Time"></p>
+            <!-- high scores link -->
+            <a class="high-score-link" href="">View Highscores</a>
+            <!-- timer display -->
+            <span class="time-display"><strong>Time: </strong><span id="time">60 </span></span>
         </nav>
+            <!-- Instructions before quiz -->
+    <div id="start-screen">
         <h1>Javascript Quizzer</h1>
         <p>Welcome to the Javascript Quizzer! You will go through a series of 5 mulitple choice questions. Simply click on the correct answer for each question. <strong>BEWARE!</strong> The timer <u>will</u> lose time if a question is answered incorrectly.</p>
         <button class="start-button">Start</button>
+    </div>
     </header>
     <main>
-    <section class="first-question">
-        <h2>Which of the fullowing elements is used to embed Javascript code?</h2>
-        <ul>
-            <li><button>a</button></li>
-            <li><button>link</button></li>
-            <li><button>href</button></li>
-            <li><button>script</button></li>
-        </ul>
+
+        <!-- quiz begins once start button is clicked and cycles through questions in script.js array -->
+    <section class="quiz hidden">
+        <h2 id="question"></h2>
+        <div id="options">
+        </div>
     </section>
-    <section class="second-question">
-        <h2>Which of the fullowing will output a boulean value?</h2>
-        <ul>
-            <li><button>consule.log(5 === 5);</button></li>
-            <li><button>consule.log("boulean");</button></li>
-            <li><button>consule.log("5 === 5");</button></li>
-            <li><button>consule.log("true");</button></li>
-        </ul>
-    </section>
-    <section class="third-question">
-        <h2>(T/F) The value of a "var" variable can be re-defined.</h2>
-        <ul>
-            <li><button>True</button></li>
-            <li><button>False</button></li>
-        </ul>
-    </section>
-    <section class="fourth-question">
-        <h2>What is the correct way to call the function inside the object?</h2><br>
-        <img src="./assets/images/fourth-question-example.jpg" alt="javascript object example">
-        <ul>
-            <li><button>person.fullname();</button></li>
-            <li><button>console.log("fullname");</button></li>
-            <li><button>function.person.fullname();</button></li>
-            <li><button>function(person());</button></li>
-        </ul>
-    </section>
-    <section class="fifth-question">
-        <h2>(T/F) Javascript can be used for styling elements.</h2>
-        <ul>
-            <li><button>True</button></li>
-            <li><button>False</button></li>
-        </ul>
+        <!-- quiz ends and form is presented for high score entry -->
+    <section class="highscore hidden">
+        <h2><strong>Quiz Over!</strong></h2>
+        <p class="score"></p>
+        <p>Please enter your information below to save score.</p>
+        <form id="highscore-form">
+            <input id="highscore-input" type="text" placeholder="Enter initials here">
+            <p>Click submit to save score.</p>
+            <input type="submit">
+        </form>
     </section>
     </main>
     <script src="./script.js"></script>
