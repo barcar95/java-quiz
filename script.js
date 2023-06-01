@@ -39,6 +39,7 @@ var currentQuestionNumber = 0;
 var timer;
 var score;
 var time = 60;
+var arrayHS = [];
 
 
 
@@ -121,29 +122,36 @@ function gameover() {
 function handleFormSubmit(event){
     event.preventDefault();
 
-    var userRecord = input("highscore-input").val();
+    var userRecord = document.querySelector("#highscore-input").value;
+    console.log(userRecord);
 
     if (!userRecord) {
-        console.log("No Initials entered!");
+        document.querySelector("#error-message").textContent = "No Initials entered!";
         return;
     }
-
-    // append to highscore list
-
-    // clear the form
-
-
+    if (userRecord) {
+        var highScoreRecord = userRecord + "-" + score ;
+        
+        // get local storage to check if anything in there
+        var retreivedHS = localStorage.getItem("highscore");
+        // if nothing in local storage add current high score to local storage
+        if (!retreivedHS) {
+            localStorage.setItem("highscore", arrayHS);
+            arrayHS.push(highScoreRecord);
+        // if something in local storage, safe keep and add new value
+        } else {
+            // parse from local storage
+            
+            
+        }
+    }
 }
-
-
-
-
 
 // event listener for start button click
 startButton.addEventListener("click", startGame);
 
 optionsEl.addEventListener("click", checkAnswer);
 
-scoreFormEl.onfullscreenchange('submit', handleFormSubmit);
+scoreFormEl.addEventListener('submit', handleFormSubmit);
 
 
