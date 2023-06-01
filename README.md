@@ -12,11 +12,10 @@ N/A
 
 To use this JavaScript Quiz website, you can 'click' the start button to start the quiz and timer. The questions are multiple choice and wrong guesses will deduct 10 seconds from the clock. The final score at the end will be logged into a highscore page.
 
-Provide instructions and examples for use. Include screenshots as needed.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+[JavaScript Quiz Webpage](https://barcar95.github.io/javascript-quiz/)
 
-![alt text](assets/images/screenshot.png)
+![JavaScript Quiz Webpage](assets/images/webpage-screenshot.jpg)
 
 ## Credits
 
