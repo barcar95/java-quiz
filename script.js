@@ -11,6 +11,7 @@ var scoreFormEl = document.querySelector("#highscore-form")
 
 
 
+
 // create array of string objects for the questions, choices, and answers
 
 var javascriptQuestions = [
@@ -130,20 +131,14 @@ function handleFormSubmit(event){
         return;
     }
     if (userRecord) {
-        var highScoreRecord = userRecord + "-" + score ;
-        
-        // get local storage to check if anything in there
-        var retreivedHS = localStorage.getItem("highscore");
-        // if nothing in local storage add current high score to local storage
-        if (!retreivedHS) {
-            localStorage.setItem("highscore", arrayHS);
-            arrayHS.push(highScoreRecord);
-        // if something in local storage, safe keep and add new value
-        } else {
-            // parse from local storage
-            
-            
-        }
+        // get local storage data, if none return empty array
+        var retreivedHSArr = JSON.parse(localStorage.getItem("highscore"))||[];
+        // push new object to retreivedHSArr array
+        retreivedHSArr.push({
+            name: userRecord,
+            score: score
+        })
+        localStorage.setItem("highscore", JSON.stringify(retreivedHSArr));
     }
 }
 
@@ -152,6 +147,6 @@ startButton.addEventListener("click", startGame);
 
 optionsEl.addEventListener("click", checkAnswer);
 
-scoreFormEl.addEventListener('submit', handleFormSubmit);
+scoreFormEl.addEventListener('click', handleFormSubmit);
 
 
